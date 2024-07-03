@@ -1129,7 +1129,6 @@ TitleScreenEntrance:
 	dec b
 	jr nz, .loop
 
-	farcall AnimateTitleCrystal
 	ret
 
 .done

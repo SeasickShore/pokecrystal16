@@ -46,42 +46,33 @@ _TitleScreen:
 
 ; Apply logo gradient:
 
-; lines 3-4
-	hlbgcoord 0, 3
-	ld bc, 2 * BG_MAP_WIDTH
+; top row
+	hlbgcoord 0, 1
+	ld bc, BG_MAP_WIDTH
 	ld a, 2
 	call ByteFill
-; line 5
-	hlbgcoord 0, 5
-	ld bc, BG_MAP_WIDTH
+; Logo
+	hlbgcoord 0, 2
+	ld bc, 6 * BG_MAP_WIDTH
 	ld a, 3
-	call ByteFill
-; line 6
-	hlbgcoord 0, 6
-	ld bc, BG_MAP_WIDTH
-	ld a, 4
-	call ByteFill
-; line 7
-	hlbgcoord 0, 7
-	ld bc, BG_MAP_WIDTH
-	ld a, 5
-	call ByteFill
-; lines 8-9
-	hlbgcoord 0, 8
-	ld bc, 2 * BG_MAP_WIDTH
-	ld a, 6
 	call ByteFill
 
 ; 'CRYSTAL VERSION'
-	hlbgcoord 5, 9
+	hlbgcoord 5, 7
 	ld bc, 11 ; length of version text
 	ld a, 1
 	call ByteFill
 
 ; Suicune gfx
-	hlbgcoord 0, 12
-	ld bc, 6 * BG_MAP_WIDTH ; the rest of the screen
+	hlbgcoord 0, 8
+	ld bc, BG_MAP_WIDTH ; the rest of the screen
 	ld a, 0 | VRAM_BANK_1
+	call ByteFill
+
+; Suicune gfx
+	hlbgcoord 0, 9
+	ld bc, 8 * BG_MAP_WIDTH ; the rest of the screen
+	ld a, 4 | VRAM_BANK_1
 	call ByteFill
 
 ; Back to VRAM bank 0
@@ -105,7 +96,7 @@ _TitleScreen:
 	call ByteFill
 
 ; Draw Pokemon logo
-	hlcoord 0, 3
+	hlcoord 0, 1
 	lb bc, 7, 20
 	ld d, $80
 	ld e, 20
@@ -249,7 +240,7 @@ SuicuneFrameIterator:
 	db $08 ; vTiles5 tile $08
 
 LoadSuicuneFrame:
-	hlcoord 6, 12
+	hlcoord 6, 8
 	ld b, 6
 .bgrows
 	ld c, 8
@@ -303,7 +294,7 @@ DrawTitleGraphic:
 
 InitializeBackground:
 	ld hl, wShadowOAMSprite00
-	ld d, -$22
+	ld d, 68 ; Crystal OBJ Position
 	ld e, $0
 	ld c, 5
 .loop
@@ -335,30 +326,6 @@ InitializeBackground:
 	ld [hli], a ; attributes
 	dec c
 	jr nz, .loop2
-	ret
-
-AnimateTitleCrystal:
-; Move the title screen crystal downward until it's fully visible
-
-; Stop at y=6
-; y is really from the bottom of the sprite, which is two tiles high
-	ld hl, wShadowOAMSprite00YCoord
-	ld a, [hl]
-	cp 6 + 2 * TILE_WIDTH
-	ret z
-
-; Move all 30 parts of the crystal down by 2
-	ld c, 30
-.loop
-	ld a, [hl]
-	add 2
-	ld [hli], a ; y
-rept SPRITEOAMSTRUCT_LENGTH - 1
-	inc hl
-endr
-	dec c
-	jr nz, .loop
-
 	ret
 
 TitleSuicuneGFX:
