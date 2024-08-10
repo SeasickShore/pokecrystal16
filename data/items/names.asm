@@ -49,7 +49,7 @@ ItemNames::
 	li "SODA POP"
 	li "LEMONADE"
 	li "X ATTACK"
-	li "TERU-SAMA"
+	li "SHINY CHARM" ; ITEM_32
 	li "X DEFEND"
 	li "X SPEED"
 	li "X SPECIAL"

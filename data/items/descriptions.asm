@@ -45,12 +45,12 @@ ItemDescriptions:
 	dw SuperRepelDesc
 	dw MaxRepelDesc
 	dw DireHitDesc
-	dw ExpCharmDesc
+	dw ExpCharmDesc ; ITEM_2D
 	dw FreshWaterDesc
 	dw SodaPopDesc
 	dw LemonadeDesc
 	dw XAttackDesc
-	dw QuestionMarkDesc
+	dw ShinyCharmDesc ; ITEM_32
 	dw XDefendDesc
 	dw XSpeedDesc
 	dw XSpecialDesc
@@ -450,6 +450,10 @@ LemonadeDesc:
 XAttackDesc:
 	db   "Raises ATTACK."
 	next "(1 BTL)@"
+
+ShinyCharmDesc:
+	db "Raises chance of"
+	next "SHINY #MON.@"
 
 XDefendDesc:
 	db   "Raises DEFENSE."
