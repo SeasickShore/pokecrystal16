@@ -45,7 +45,7 @@ ItemDescriptions:
 	dw SuperRepelDesc
 	dw MaxRepelDesc
 	dw DireHitDesc
-	dw QuestionMarkDesc
+	dw ExpCharmDesc
 	dw FreshWaterDesc
 	dw SodaPopDesc
 	dw LemonadeDesc
@@ -430,6 +430,10 @@ MaxRepelDesc:
 DireHitDesc:
 	db   "Ups critical hit"
 	next "ratio. (1 BTL)@"
+
+ExpCharmDesc:
+	db   "Earns extra EXP."
+	next "points in battle.@"
 
 FreshWaterDesc:
 	db   "Restores #MON"

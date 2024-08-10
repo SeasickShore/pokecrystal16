@@ -7177,6 +7177,15 @@ GiveExperiencePoints:
 	ld a, [wBattleMode]
 	dec a
 	call nz, BoostExp
+; Boost exp for Exp. Charm
+
+	ld a, EXP_CHARM
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr nc, .NoExpCharm
+	call BoostExp
+.NoExpCharm
 ; Boost experience for Lucky Egg
 	push bc
 	ld a, MON_ITEM
