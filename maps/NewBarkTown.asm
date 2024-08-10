@@ -285,8 +285,8 @@ NewBarkTown_MapEvents:
 	def_warp_events
 	warp_event  6,  3, ELMS_LAB, 1
 	warp_event 13,  5, PLAYERS_HOUSE_1F, 1
-	warp_event  3, 11, PLAYERS_NEIGHBORS_HOUSE, 1
-	warp_event 11, 13, ELMS_HOUSE, 1
+	warp_event  3, 12, PLAYERS_NEIGHBORS_HOUSE, 1
+	warp_event 11, 14, ELMS_HOUSE, 1
 
 	def_coord_events
 	coord_event  1,  8, SCENE_NEWBARKTOWN_TEACHER_STOPS_YOU, NewBarkTown_TeacherStopsYouScene1
@@ -296,7 +296,7 @@ NewBarkTown_MapEvents:
 	bg_event  8,  8, BGEVENT_READ, NewBarkTownSign
 	bg_event 11,  5, BGEVENT_READ, NewBarkTownPlayersHouseSign
 	bg_event  3,  3, BGEVENT_READ, NewBarkTownElmsLabSign
-	bg_event  9, 13, BGEVENT_READ, NewBarkTownElmsHouseSign
+	bg_event  9, 14, BGEVENT_READ, NewBarkTownElmsHouseSign
 
 	def_object_events
 	object_event  6,  8, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownTeacherScript, -1
