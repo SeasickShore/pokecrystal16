@@ -175,7 +175,7 @@ DrawIntroPlayerPic:
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .got_class
-	ld e, KRIS
+	ld e, CHRIS
 .got_class
 	ld a, e
 	ld [wTrainerClass], a
