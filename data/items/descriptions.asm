@@ -25,7 +25,7 @@ ItemDescriptions:
 	dw FireStoneDesc
 	dw ThunderStoneDesc
 	dw WaterStoneDesc
-	dw QuestionMarkDesc
+	dw OvalCharmDesc ; ITEM_19
 	dw HPUpDesc
 	dw ProteinDesc
 	dw IronDesc
@@ -350,6 +350,10 @@ ThunderStoneDesc:
 WaterStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
+
+OvalCharmDesc:
+	db   "Increases EGG"
+	next "yield in DAY CARE.@"
 
 HPUpDesc:
 	db   "Raises the HP of"
